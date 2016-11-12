@@ -1,0 +1,7 @@
+#no .pyc
+*.pyc
+
+.env
+#no flask
+flask/
+tmp/
