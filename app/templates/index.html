@@ -10,7 +10,13 @@
 </div>
 <div>
     {% if current_user.can(Permission.WRITE_ARTICLES) %}
-    {{ wtf.quick_form(form) }}
+   {{ wtf.quick_form(form) }} 
+	{# 	<form method="POST">
+			{{ form.pagedown(rows = 10) }}
+			{{ form.submit }}
+		</form>
+	#}
+
     {% endif %}
 </div>
 <div class="post-tabs">
