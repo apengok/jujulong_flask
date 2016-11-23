@@ -4,7 +4,50 @@
 {% block title %}flasky - Kivie{% endblock %}
 
 {% block page_content %}
-<div>
+<div class="page-header">
 	<h1>Kivie-Jujulong</h1>
-	</div>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Cloth</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Totoal</th>
+                <th>Coming</th>
+                <th>Sale</th>
+                <th>Receved</th>
+                <th>Storage</th>
+                <th>left</th>
+                <th>diff</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cat in catalogs %}
+            <tr>
+                <td>{{ cat.id }}</td>
+                <td>{{ cat.cloth }}</td>
+                <td>{{ cat.color_id }}</td>
+                <td>{{ cat.size }}</td>
+                <td>{{ cat.totoal }}</td>
+                <td>{{ cat.coming }}</td>
+                <td>{{ cat.sale }}</td>
+                <td>{{ cat.receved }}</td>
+                <td>{{ cat.storge }}</td>
+                <td>{{ cat.left }}</td>
+                <td>{{ cat.diff }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination,'.index') }}
+</div>
+{% endif %}
+
 {% endblock %}

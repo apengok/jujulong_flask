@@ -15,6 +15,7 @@ if os.path.exists('.env'):
 
 from app import create_app,db
 from app.models import User,Follow,Role,Permission,Post,Comment
+from app.kivie.models import Styles,Colors,Catalog
 from flask_script import Manager,Shell
 from flask_migrate import Migrate,MigrateCommand
 
@@ -23,7 +24,7 @@ manager = Manager(app)
 migrate = Migrate(app,db)
 
 def make_shell_context():
-    return dict(app=app,db=db,User=User,Follow=Follow,Role=Role,Permission=Permission,Post=Post,Comment=Comment)
+    return dict(app=app,db=db,User=User,Follow=Follow,Role=Role,Permission=Permission,Post=Post,Comment=Comment,Styles=Styles,Colors=Colors,Catalog=Catalog)
 manager.add_command("shell",Shell(make_context=make_shell_context))
 manager.add_command('db',MigrateCommand)
 
@@ -67,6 +68,9 @@ def deploy():
 
     # create user roles
     Role.insert_roles()
+    Styles.insert_styles()
+    Colors.insert_colors()
+    Catalog.insert_catalog()
 
     # create self-follows for all users
     User.add_self_follows()
