@@ -1,3 +1,5 @@
+#-*- coding:UTF-8 -*-
+
 #!/usr/bin/env python
 import os
 COV = None

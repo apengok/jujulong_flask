@@ -1,0 +1,75 @@
+{% extends "kivie_base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Kivie-all{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+	<h1>Kivie-Jujulong</h1>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Color</th>
+                <th>70A</th>
+                <th>75A</th>
+                <th>80A</th>
+                <th>85A</th>
+                <th>70B</th>
+                <th>75B</th>
+                <th>80B</th>
+                <th>85B</th>
+                <th>70C</th>
+                <th>75C</th>
+                <th>80C</th>
+                <th>85C</th>
+                <th>90C</th>
+                <th>75D</th>
+                <th>80D</th>
+                <th>85D</th>
+                <th>90D</th>
+                <th>M</th>
+                <th>L</th>
+                <th>XL</th>
+                <th>XXL</th>
+            </<tr>
+        </thead>
+        <tbody>
+            {% for color in json_cats %}
+            <tr>
+                <td>{{ color }}</td>
+                <td>{{ json_cats[color]['70A'] }}</td>
+                <td>{{ json_cats[color]['75A'] }}</td>
+                <td>{{ json_cats[color]['80A'] }}</td>
+                <td>{{ json_cats[color]['85A'] }}</td>
+                <td>{{ json_cats[color]['70B'] }}</td>
+                <td>{{ json_cats[color]['75B'] }}</td>
+                <td>{{ json_cats[color]['80B'] }}</td>
+                <td>{{ json_cats[color]['85B'] }}</td>
+                <td>{{ json_cats[color]['70C'] }}</td>
+                <td>{{ json_cats[color]['75C'] }}</td>
+                <td>{{ json_cats[color]['80C'] }}</td>
+                <td>{{ json_cats[color]['85C'] }}</td>
+                <td>{{ json_cats[color]['90C'] }}</td>
+                <td>{{ json_cats[color]['75D'] }}</td>
+                <td>{{ json_cats[color]['80D'] }}</td>
+                <td>{{ json_cats[color]['85D'] }}</td>
+                <td>{{ json_cats[color]['90D'] }}</td>
+                <td>{{ json_cats[color]['M'] }}</td>
+                <td>{{ json_cats[color]['L'] }}</td>
+                <td>{{ json_cats[color]['XL'] }}</td>
+                <td>{{ json_cats[color]['XXL'] }}</td>
+              </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination,'.index') }}
+</div>
+{% endif %}
+
+{% endblock %}

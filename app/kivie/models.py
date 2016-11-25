@@ -31,6 +31,7 @@ class Colors(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(10),unique=True)
     style_id = db.Column(db.Integer,db.ForeignKey('styles.id'))
+    catalog = db.relationship('Catalog',backref='color',lazy='dynamic')
 
     @staticmethod
     def insert_colors():
@@ -75,6 +76,13 @@ class Catalog(db.Model):
     storge = db.Column(db.Integer)
     left = db.Column(db.Integer)
     diff = db.Column(db.Integer)
+
+
+    def storge_json(self):
+        json_cat = {
+                self.cloth:{self.color.name:{self.size:{'storge':self.storge}}}
+                }
+        return json_cat
 
 
     @staticmethod

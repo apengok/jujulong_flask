@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "kivie_base.html" %}
 {% import "_macros.html" as macros %}
 
 {% block title %}flasky - Kivie{% endblock %}
@@ -29,7 +29,7 @@
             <tr>
                 <td>{{ cat.id }}</td>
                 <td>{{ cat.cloth }}</td>
-                <td>{{ cat.color_id }}</td>
+                <td>{{ cat.color.name }}</td>
                 <td>{{ cat.size }}</td>
                 <td>{{ cat.totoal }}</td>
                 <td>{{ cat.coming }}</td>

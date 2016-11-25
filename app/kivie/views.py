@@ -12,3 +12,24 @@ def index():
     catalogs = pagination.items
     return render_template('kivie/index.html',catalogs=catalogs,pagination=pagination)
 
+@kivie.route('/color_select/<color>')
+def color_select(color):
+    c = unicode(color)
+    color_id = Colors.query.filter_by(name=c).first()
+    catalogs = Catalog.query.filter_by(color_id=color_id.id)
+    return render_template('kivie/index.html',catalogs=catalogs)
+
+@kivie.route('/all')
+def all_catalog():
+    cats = Catalog.query.all()
+    json_cats = {}
+    for cat in cats:
+        color = cat.color.name
+        size = cat.size
+        storge = cat.storge
+        if color not in json_cats.keys():
+            json_cats[color]={}
+        json_cats[color][size] = storge
+
+    return render_template('kivie/allcatalog.html',json_cats=json_cats)
+
