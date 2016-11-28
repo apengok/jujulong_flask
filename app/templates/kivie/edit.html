@@ -1,0 +1,27 @@
+{% extends "kivie_base.html" %}
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Kivie-edit{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Edit storge</h1>
+</div>
+<div>
+    <form action="/edit">
+        <table>
+            <tr>
+                <th>Size</th>
+                <th>Num</th>
+            </tr>
+            {% for size in Sizes %}
+            <tr>
+                <td>{{ size }}</td>
+                <td><input type="text"  ></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</div>
+{% endblock %}

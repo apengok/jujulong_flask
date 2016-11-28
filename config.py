@@ -1,3 +1,5 @@
+#-*- coding:UTF-8 -*-
+
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -13,7 +15,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 #        {'name':'AOL','url':'http://openid.aol.com/<username>'},
 #        {'name':'Flickr','url':'http://flickr.com/<username>'},
 #        {'name':'MyOpenID','url':'https://www.myopenid.com'}]
-
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     SSL_DISABLE = True
@@ -26,6 +27,48 @@ class Config:
     FLASKY_FOLLOWERS_PER_PAGE = 50
     FLASKY_COMMENTS_PER_PAGE = 30
     FLASKY_SLOW_DB_QUERY_TIME = 0.5
+    KIVIE_CATALOGS = {
+               u'内衣':
+               {
+                   u'黑色':('70A','75A','80A','85A','70B','75B','80B','85B','75C','80C'),
+                   u'肤色':('70A','75A','80A','85A','70B','75B','80B','85B','75C','80C'),
+                   u'豹纹':('70A','75A','80A','85A','70B','75B','80B','85B','75C','80C'),
+                   u'裸灰':('70A','75A','80A','85A','70B','75B','80B','85B','70C','75C','80C','85C'),
+                   u'裸色':('70A','75A','80A','85A','70B','75B','80B','85B','70C','75C','80C','85C'),
+                   u'中国红':('70A','75A','80A','85A','70B','75B','80B','85B','70C','75C','80C','85C'),
+                   u'富贵粉':('70A','75A','80A','85A','70B','75B','80B','85B','70C','75C','80C','85C'),
+                   u'典雅黑':('70A','75A','80A','85A','70B','75B','80B','85B','75C','80C','85C','90C','75D','80D','85D','90D'),
+                   u'幸福红':('70A','75A','80A','85A','70B','75B','80B','85B','75C','80C','85C','90C','75D','80D','85D','90D'),
+                   u'樱花粉':('70A','75A','80A','85A','70B','75B','80B','85B','75C','80C','85C','90C','75D','80D','85D','90D'),
+                   u'冰绿':('70A','75A','80A','85A','70B','75B','80B','85B','70C','75C','80C'),
+                   u'蜜粉':('70A','75A','80A','85A','70B ','75B','80B','85B','70C','75C','80C'),
+                   u'酒红':('70A','75A','80A','85A','70B','75B','80B','85B','70C','75C','80C'),
+                   u'黛黑':('70A','75A','80A','85A','70B','75B','80B','85B','70C','75C','80C'),
+                   },
+               u'内裤':{
+                   u'黑色':('M','L','XL'),
+                   u'肤色':('M','L','XL'),
+                   u'豹纹':('M','L','XL'),
+                   u'裸灰':('M','L','XL'),
+                   u'裸色':('M','L','XL'),
+                   u'中国红':('M','L','XL'),
+                   u'富贵粉':('M','L','XL'),
+                   u'典雅黑':('M','L','XL','XXL'),
+                   u'幸福红':('M','L','XL','XXL'),
+                   u'樱花粉':('M','L','XL','XXL'),
+                   u'冰绿':('M','L','XL'),
+                   u'蜜粉':('M','L','XL'),
+                   u'酒红':('M','L','XL'),
+                   u'黛黑':('M','L','XL'),
+                   u'藕色':('L','XL','XXL'),
+                   u'豆绿':('L','XL','XXL'),
+                   u'驼灰':('L','XL','XXL'),
+                   u'幸运红':('L','XL','XXL'),
+                   u'烟青蓝':('L','XL','XXL'),
+                   }
+               }
+
+
 
     @staticmethod
     def init_app(app):

@@ -1,8 +1,11 @@
+#-*- coding:UTF-8 -*-
+
 from datetime import datetime
 from flask import render_template,session,redirect,url_for,flash,request,current_app
 from .. import db
 from . import kivie
 from . models import Styles,Colors,Catalog
+from . forms import ExampleForm
 
 @kivie.route('/')
 def index():
@@ -33,3 +36,9 @@ def all_catalog():
 
     return render_template('kivie/allcatalog.html',json_cats=json_cats)
 
+@kivie.route('/edit',methods=['POST','GET'])
+def edit():
+    form = ExampleForm()
+    #Sizes = current_app.config['KIVIE_CATALOGS'][u'内衣'.encode('utf-8')][u'黑色'.encode('utf-8')]
+    Sizes = ('70A','75A','80A','85A')
+    return render_template('kivie/edit.html',form=form,Sizes=Sizes)
