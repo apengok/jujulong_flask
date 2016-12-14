@@ -2,10 +2,12 @@
 
 from datetime import datetime
 from flask import render_template,session,redirect,url_for,flash,request,current_app
-from .. import db
+from .. import db,admin
 from . import kivie
 from . models import Styles,Colors,Catalog
 from . forms import ExampleForm
+from flask_admin.contrib.sqla import ModelView
+
 
 @kivie.route('/')
 def index():
@@ -42,3 +44,6 @@ def edit():
     #Sizes = current_app.config['KIVIE_CATALOGS'][u'内衣'.encode('utf-8')][u'黑色'.encode('utf-8')]
     Sizes = ('70A','75A','80A','85A')
     return render_template('kivie/edit.html',form=form,Sizes=Sizes)
+
+
+admin.add_view(ModelView(Catalog,db.session))
